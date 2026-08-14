@@ -11,6 +11,16 @@ Welcome to the official repository of **Sai Krishna Gummadidala** — Full-Stack
 
 ---
 
+## 🖼️ User Interface & Visual Experience
+
+### 🎭 Hero Identity & Mask Reveal
+![Hero Section UI](public/assets/preview-hero.png)
+
+### 🕸️ Flagship Projects Showcase
+![Projects Showcase UI](public/assets/preview-projects.png)
+
+---
+
 ## ⚡ Tech Stack & Marvel Tech Specs
 
 | Category | Technologies |
