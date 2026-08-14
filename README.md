@@ -6,7 +6,8 @@ Welcome to the official repository of **Sai Krishna Gummadidala** — Full-Stack
 
 ---
 
-## 💻 Repository
+## 🚀 Live Demo & Repository
+- 🌐 **Live Website**: [https://saikrishna-portfolio-drab.vercel.app/](https://saikrishna-portfolio-drab.vercel.app/)
 - 💻 **GitHub Repository**: [https://github.com/Saikrishna1124/saikrishna-portfolio](https://github.com/Saikrishna1124/saikrishna-portfolio)
 
 ---
