@@ -96,15 +96,6 @@ const experiences = [
       "Built and optimized 5+ production REST API endpoints in Python, reducing API response times by 25% through query optimization. Resolved critical reliability issues ahead of release deadlines.",
     highlights: ["Python", "REST APIs", "Query Optimization", "Testing"],
   },
-  {
-    title: "Full-Stack & AI Engineer",
-    company: "Projects & Independent",
-    period: "2024 -- Present",
-    award: "3+ Production Web Apps",
-    description:
-      "Architected and deployed full-stack AI web applications (CareerMap, NexusLearn, CampusPro) integrating Google Gemini API, Django REST Framework, PostgreSQL, and React 19.",
-    highlights: ["React 19", "Gemini AI", "Django", "PostgreSQL", "Vercel"],
-  },
 ];
 
 const education = [
@@ -1212,9 +1203,9 @@ function ExperienceEducation() {
         <div className="w-12 h-1 bg-[#a31515] mt-2 rounded-full" />
       </div>
 
-      <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 z-10 items-stretch">
+      <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 z-10">
         {/* Experience Column */}
-        <div className="flex flex-col gap-6 h-full">
+        <div className="flex flex-col gap-6">
           <div className="flex items-center gap-3 border-b border-gray-200 pb-3">
             <Briefcase className="w-5 h-5 text-[#a31515]" />
             <h3 className="text-xl font-black uppercase tracking-tight text-gray-900">
@@ -1222,38 +1213,35 @@ function ExperienceEducation() {
             </h3>
           </div>
 
-          <div className="flex flex-col gap-4 flex-1">
+          <div className="flex flex-col gap-4">
             {experiences.map((exp, idx) => (
               <div
                 key={idx}
-                className="timeline-card bg-white border border-gray-200 p-5 sm:p-6 rounded-2xl shadow-sm hover:border-[#a31515] transition-all duration-300 hover:shadow-md flex-1 flex flex-col justify-between"
+                className="timeline-card bg-white border border-gray-200 p-5 rounded-2xl shadow-sm hover:border-[#a31515] transition-all duration-300 hover:shadow-md"
               >
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="text-base font-bold text-gray-900 uppercase tracking-tight">
-                        {exp.title}
-                      </h4>
-                      <p className="text-xs font-bold text-[#a31515] uppercase tracking-wider">
-                        {exp.company}
-                      </p>
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full shrink-0 ml-2">
-                      {exp.period}
-                    </span>
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 className="text-base font-bold text-gray-900 uppercase tracking-tight">
+                      {exp.title}
+                    </h4>
+                    <p className="text-xs font-bold text-[#a31515] uppercase tracking-wider">
+                      {exp.company}
+                    </p>
                   </div>
-                  {exp.award && (
-                    <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-200 px-2.5 py-1 rounded-md mb-3">
-                      <Award className="w-3.5 h-3.5" />
-                      {exp.award}
-                    </div>
-                  )}
-                  <p className="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed mb-4">
-                    {exp.description}
-                  </p>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full shrink-0 ml-2">
+                    {exp.period}
+                  </span>
                 </div>
-
-                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100">
+                {exp.award && (
+                  <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-200 px-2.5 py-1 rounded-md mb-3">
+                    <Award className="w-3.5 h-3.5" />
+                    {exp.award}
+                  </div>
+                )}
+                <p className="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed mb-4">
+                  {exp.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
                   {exp.highlights.map((item, hIdx) => (
                     <span
                       key={hIdx}
@@ -1269,7 +1257,7 @@ function ExperienceEducation() {
         </div>
 
         {/* Education Column */}
-        <div className="flex flex-col gap-6 h-full">
+        <div className="flex flex-col gap-6">
           <div className="flex items-center gap-3 border-b border-gray-200 pb-3">
             <GraduationCap className="w-5 h-5 text-[#a31515]" />
             <h3 className="text-xl font-black uppercase tracking-tight text-gray-900">
@@ -1277,33 +1265,31 @@ function ExperienceEducation() {
             </h3>
           </div>
 
-          <div className="flex flex-col gap-4 flex-1">
+          <div className="flex flex-col gap-4">
             {education.map((edu, idx) => (
               <div
                 key={idx}
-                className="timeline-card bg-white border border-gray-200 p-5 sm:p-6 rounded-2xl shadow-sm hover:border-[#a31515] transition-all duration-300 hover:shadow-md flex-1 flex flex-col justify-between"
+                className="timeline-card bg-white border border-gray-200 p-5 rounded-2xl shadow-sm hover:border-[#a31515] transition-all duration-300 hover:shadow-md"
               >
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 className="text-base font-bold text-gray-900 uppercase tracking-tight">
-                        {edu.degree}
-                      </h4>
-                      <p className="text-xs font-bold text-gray-600 uppercase tracking-wider">
-                        {edu.institution}
-                      </p>
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-100 px-2.5 py-1 rounded-full shrink-0 ml-2">
-                      {edu.period}
-                    </span>
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 className="text-base font-bold text-gray-900 uppercase tracking-tight">
+                      {edu.degree}
+                    </h4>
+                    <p className="text-xs font-bold text-gray-600 uppercase tracking-wider">
+                      {edu.institution}
+                    </p>
                   </div>
-                  <span className="inline-block text-[11px] font-bold text-gray-800 bg-gray-100 px-2.5 py-0.5 rounded mb-3">
-                    {edu.score}
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-100 px-2.5 py-1 rounded-full shrink-0 ml-2">
+                    {edu.period}
                   </span>
-                  <p className="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed">
-                    {edu.description}
-                  </p>
                 </div>
+                <span className="inline-block text-[11px] font-bold text-gray-800 bg-gray-100 px-2.5 py-0.5 rounded mb-3">
+                  {edu.score}
+                </span>
+                <p className="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed">
+                  {edu.description}
+                </p>
               </div>
             ))}
           </div>
