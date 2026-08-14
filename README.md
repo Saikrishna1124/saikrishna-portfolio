@@ -6,8 +6,7 @@ Welcome to the official repository of **Sai Krishna Gummadidala** — Full-Stack
 
 ---
 
-## 🚀 Live Demo & Repository
-- 🌐 **Live Website**: [https://personal-portfolio-kappa-lemon-57.vercel.app/](https://personal-portfolio-kappa-lemon-57.vercel.app/)
+## 💻 Repository
 - 💻 **GitHub Repository**: [https://github.com/Saikrishna1124/saikrishna-portfolio](https://github.com/Saikrishna1124/saikrishna-portfolio)
 
 ---
