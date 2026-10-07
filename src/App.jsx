@@ -17,6 +17,12 @@ import {
   Award,
   Code2,
   Loader2,
+  BookOpen,
+  FileText,
+  Target,
+  Bot,
+  Sparkles,
+  Users,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -50,9 +56,9 @@ const skills = [
 const projects = [
   {
     title: "CareerMap -- AI Guidance Platform",
-    subtitle: "Flagship Project",
+    subtitle: "Flagship Project • Research Published",
     description:
-      "AI-powered career platform that analyzes resumes, identifies skill gaps, generates personalized roadmaps via Gemini API, and visualizes insights.",
+      "AI-powered career platform that analyzes resumes, identifies skill gaps, generates personalized roadmaps via Gemini API, and visualizes insights. Peer-reviewed research paper officially published in IJCSE Journal.",
     tags: [
       "TypeScript",
       "React.js",
@@ -60,10 +66,13 @@ const projects = [
       "Node.js",
       "PostgreSQL",
       "Gemini AI",
+      "Research Paper",
       "Recharts",
     ],
     githubUrl: "https://github.com/Saikrishna1124/CareerMap",
     liveUrl: "https://careermap-c2vx.onrender.com/",
+    paperUrl:
+      "https://www.ijcsejournal.org/careermap-comparative-ai-framework-resume-parsing-skill-gap-analysis/",
   },
   {
     title: "NexusLearn -- Smart E-Learning",
@@ -121,7 +130,85 @@ const education = [
   },
 ];
 
+const researchPublications = [
+  {
+    title:
+      "CareerMap: A Comparative AI Framework for Resume Parsing, Skill Gap Analysis, and Intelligent Interview Assistance",
+    journal:
+      "International Journal of Computer Science Engineering Techniques (IJCSE)",
+    shortJournal: "IJCSE",
+    volume: "Volume 10, Issue 4",
+    pages: "Pages 100–113",
+    date: "August 27, 2026",
+    paperId: "IJCSE-V10I4P13",
+    issn: "2455-135X",
+    paperUrl:
+      "https://www.ijcsejournal.org/careermap-comparative-ai-framework-resume-parsing-skill-gap-analysis/",
+    linkedinUrl: "https://lnkd.in/dhAxMqUX",
+    certificateUrl:
+      "https://drive.google.com/file/d/1_vFyAsFXC9f47cWzVBkB3OZcZaOm-q2r/view?usp=sharing",
+    abstract:
+      "Our peer-reviewed research investigates the application of Artificial Intelligence in automated career preparation. Focusing on comparative machine learning and NLP methodologies, the paper benchmarks state-of-the-art frameworks for resume parsing, industry-aligned skill gap analysis, and intelligent mock interview assistance to empower candidates with data-driven career readiness.",
+    pillars: [
+      {
+        title: "AI-Based Resume Parsing",
+        desc: "Semantic extraction and qualification profiling from diverse resume formats.",
+        icon: "FileText",
+      },
+      {
+        title: "Skill Gap Analysis",
+        desc: "Algorithmic comparison against live industry demands to detect technical deficiencies.",
+        icon: "Target",
+      },
+      {
+        title: "Intelligent Interview Assistance",
+        desc: "Interactive conversational AI simulating technical interviews with evaluation metrics.",
+        icon: "Bot",
+      },
+      {
+        title: "AI-Driven Career Readiness",
+        desc: "Holistic progression roadmaps dynamically tailored to individual career goals.",
+        icon: "Sparkles",
+      },
+    ],
+    teammates: [
+      {
+        name: "Sai Krishna Gummadidala",
+        role: "Co-Author",
+        url: "https://www.linkedin.com/in/sai-krishna-gummadidala-261984354/",
+      },
+      {
+        name: "Jyothsna Vamisetti",
+        role: "Co-Author",
+        url: "https://www.linkedin.com/in/jyothsnavamisetti/",
+      },
+      {
+        name: "Muriki Tarun",
+        role: "Co-Author",
+        url: "https://www.linkedin.com/in/muriki-tarun/",
+      },
+      {
+        name: "BHARATH KUMAR KURUVA",
+        role: "Co-Author",
+        url: "https://www.linkedin.com/in/bharath-kumar-kuruva-513195317/",
+      },
+      {
+        name: "GUTHA CHAITANYA",
+        role: "Co-Author",
+        url: "https://www.linkedin.com/in/gutha-chaitanya-282a27353/",
+      },
+    ],
+    mentor: "Ritu Agrawal Ma’am",
+    institution: "Parul University",
+  },
+];
+
 const certifications = [
+  {
+    name: "Published Research: CareerMap",
+    issuer: "IJCSE Journal (ISSN: 2455-135X)",
+    link: "https://drive.google.com/file/d/1_vFyAsFXC9f47cWzVBkB3OZcZaOm-q2r/view?usp=sharing",
+  },
   {
     name: "Best Performer Award",
     issuer: "Elevate Labs",
@@ -157,6 +244,7 @@ const certifications = [
 const marqueeItems = [
   "FULL-STACK DEVELOPER",
   "AI & ML ENGINEER",
+  "RESEARCH AUTHOR (IJCSE)",
   "PYTHON & REACT.JS",
   "DJANGO & NODE.JS",
   "POSTGRESQL & GEMINI AI",
@@ -178,6 +266,7 @@ function App() {
       <About />
       <Skills />
       <Projects />
+      <ResearchPublications />
       <ExperienceEducation />
       <Certifications />
       <Contact />
@@ -201,6 +290,7 @@ function Navbar() {
     "About",
     "Skills",
     "Projects",
+    "Research",
     "Experience",
     "Certifications",
     "Contact",
@@ -769,8 +859,9 @@ function About() {
               using React, Django, Node.js, and Python.
             </p>
             <p className="origin-bottom">
-              Recognized as <strong>Best Performer</strong> during my Python Developer Internship at Elevate Labs,
-              I specialize in building optimized REST APIs, integrating AI services like Gemini, and engineering responsive user interfaces.
+              Recognized as <strong>Best Performer</strong> during my Python Developer Internship at Elevate Labs
+              and a <strong>Published AI Researcher</strong> in the International Journal of Computer Science Engineering Techniques (IJCSE),
+              I specialize in building optimized REST APIs, integrating AI models like Gemini, and engineering intelligent software systems.
             </p>
           </div>
 
@@ -1127,6 +1218,19 @@ function Projects() {
                   </button>
                 )}
 
+                {project.paperUrl && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openLink(project.paperUrl);
+                    }}
+                    className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#a31515] hover:text-[#7a0f0f] transition-colors font-extrabold"
+                  >
+                    <BookOpen className="w-3.5 h-3.5" />
+                    Paper
+                  </button>
+                )}
+
                 {project.liveUrl && (
                   <button
                     onClick={(e) => {
@@ -1140,6 +1244,337 @@ function Projects() {
                   </button>
                 )}
               </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ResearchPublications() {
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const bgWebRef = useRef(null);
+  const spiderRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        })
+        .fromTo(
+          titleRef.current,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
+        )
+        .fromTo(
+          ".pub-card",
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "back.out(1.4)",
+          },
+          "-=0.3"
+        );
+
+      if (bgWebRef.current) {
+        gsap.to(bgWebRef.current, {
+          scale: 1.08,
+          opacity: 0.06,
+          repeat: -1,
+          yoyo: true,
+          duration: 5.5,
+          ease: "sine.inOut",
+        });
+      }
+
+      if (spiderRef.current) {
+        gsap.to(spiderRef.current, {
+          y: -8,
+          rotation: 3,
+          repeat: -1,
+          yoyo: true,
+          duration: 2.8,
+          ease: "sine.inOut",
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      id="research"
+      ref={sectionRef}
+      className="relative w-full bg-white text-gray-900 py-16 px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col items-center justify-center overflow-hidden border-t border-gray-100"
+    >
+      <div id="publications" className="absolute -top-20" />
+
+      {/* Background Web Top Left */}
+      <div className="absolute top-0 left-0 pointer-events-none overflow-hidden z-0">
+        <img
+          ref={bgWebRef}
+          src="/assets/web1-770H2sSx.png"
+          alt="Background Web"
+          className="w-[350px] sm:w-[500px] md:w-[650px] h-[350px] sm:h-[500px] md:h-[650px] object-contain opacity-[0.04] mix-blend-multiply -translate-x-1/4 -translate-y-1/4"
+        />
+      </div>
+
+      {/* Hanging Spidey Decoration Top Right */}
+      <div
+        ref={spiderRef}
+        className="absolute top-0 right-4 sm:right-12 md:right-20 z-20 pointer-events-none hidden sm:flex flex-col items-center origin-top"
+      >
+        <div className="w-[1.5px] h-10 md:h-16 bg-gradient-to-b from-transparent to-gray-400 opacity-50" />
+        <img
+          src="/assets/spydy_hang-Cac1gK30.png"
+          alt="Hanging Spider-Man"
+          className="w-16 md:w-24 h-auto object-contain drop-shadow-md -mt-1"
+        />
+      </div>
+
+      {/* Title */}
+      <div
+        ref={titleRef}
+        className="flex flex-col items-center text-center mb-10 z-10"
+      >
+        <span className="text-[#a31515] font-bold uppercase text-[10px] md:text-xs tracking-[0.2em] mb-2 flex items-center gap-1.5">
+          <img
+            src="/assets/spydy-DLbFrGCQ.png"
+            alt="Spider"
+            className="w-4 h-4 object-contain"
+          />
+          Peer-Reviewed Academic Research
+        </span>
+        <h2
+          className="text-3xl md:text-5xl font-black tracking-tighter uppercase italic text-gray-900"
+          style={{ textShadow: "2px 2px 0px #fca5a5" }}
+        >
+          RESEARCH PUBLICATIONS.
+        </h2>
+        <div className="w-12 h-1 bg-[#a31515] mt-2 rounded-full" />
+      </div>
+
+      {/* Publications List */}
+      <div className="w-full max-w-4xl flex flex-col gap-8 z-10">
+        {researchPublications.map((pub, idx) => (
+          <div
+            key={idx}
+            className="pub-card group relative bg-gray-50/90 backdrop-blur-sm border border-gray-200 hover:border-[#a31515] p-6 sm:p-8 md:p-10 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-[0_15px_35px_rgba(163,21,21,0.12)] overflow-hidden"
+          >
+            {/* Top accent bar */}
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-[#a31515] transform origin-left transition-all duration-500" />
+
+            {/* Badges Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                  <span className="relative flex h-2 w-2 mr-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
+                  </span>
+                  Officially Published
+                </span>
+
+                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-200 px-3 py-1 rounded-full">
+                  IJCSE Journal
+                </span>
+              </div>
+
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-500 bg-white border border-gray-200 px-3 py-1 rounded-full">
+                {pub.date}
+              </span>
+            </div>
+
+            {/* Paper Title */}
+            <h3 className="text-lg sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-gray-900 group-hover:text-[#a31515] transition-colors duration-300 mb-3 leading-snug">
+              “{pub.title}”
+            </h3>
+
+            {/* Publication Details Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 my-5">
+              <div className="bg-white border border-gray-200 p-2.5 rounded-xl flex flex-col">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400">
+                  Journal
+                </span>
+                <span className="text-xs font-bold text-gray-800 truncate" title={pub.journal}>
+                  IJCSE
+                </span>
+              </div>
+              <div className="bg-white border border-gray-200 p-2.5 rounded-xl flex flex-col">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400">
+                  Volume / Issue
+                </span>
+                <span className="text-xs font-bold text-gray-800">
+                  Vol. 10, Issue 4
+                </span>
+              </div>
+              <div className="bg-white border border-gray-200 p-2.5 rounded-xl flex flex-col">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400">
+                  Pages
+                </span>
+                <span className="text-xs font-bold text-gray-800">
+                  {pub.pages}
+                </span>
+              </div>
+              <div className="bg-white border border-gray-200 p-2.5 rounded-xl flex flex-col">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400">
+                  Paper ID
+                </span>
+                <span className="text-xs font-bold text-gray-800">
+                  {pub.paperId}
+                </span>
+              </div>
+              <div className="bg-white border border-gray-200 p-2.5 rounded-xl flex flex-col col-span-2 sm:col-span-1">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400">
+                  ISSN
+                </span>
+                <span className="text-xs font-bold text-gray-800">
+                  {pub.issn}
+                </span>
+              </div>
+            </div>
+
+            {/* Abstract */}
+            <div className="bg-white/80 border border-gray-200/80 rounded-xl p-4 sm:p-5 mb-5">
+              <div className="flex items-center gap-2 mb-2 text-[#a31515]">
+                <BookOpen className="w-4 h-4 shrink-0" />
+                <span className="text-xs font-bold uppercase tracking-wider text-[#a31515]">
+                  Research Abstract & Focus
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed">
+                {pub.abstract}
+              </p>
+            </div>
+
+            {/* Core Research Pillars */}
+            <div className="mb-6">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-2.5">
+                Core Research Focus Areas
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {pub.pillars.map((pillar, pIdx) => (
+                  <div
+                    key={pIdx}
+                    className="flex items-start gap-3 bg-white border border-gray-200 p-3 rounded-xl"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center text-[#a31515] shrink-0 mt-0.5">
+                      {pillar.icon === "FileText" && <FileText className="w-4 h-4" />}
+                      {pillar.icon === "Target" && <Target className="w-4 h-4" />}
+                      {pillar.icon === "Bot" && <Bot className="w-4 h-4" />}
+                      {pillar.icon === "Sparkles" && <Sparkles className="w-4 h-4" />}
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-gray-900">
+                        {pillar.title}
+                      </span>
+                      <span className="text-[11px] text-gray-500 font-medium leading-tight mt-0.5">
+                        {pillar.desc}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mentorship & Teammates */}
+            <div className="pt-4 border-t border-gray-200/80 flex flex-col gap-4 mb-6">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-xs text-gray-700">
+                  <span className="font-bold text-gray-900 uppercase text-[11px] tracking-wider">
+                    Mentor:
+                  </span>
+                  <span className="bg-white border border-gray-200 px-2.5 py-1 rounded-md font-bold text-[#a31515]">
+                    {pub.mentor}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-gray-700">
+                  <span className="font-bold text-gray-900 uppercase text-[11px] tracking-wider">
+                    Institution:
+                  </span>
+                  <span className="bg-white border border-gray-200 px-2.5 py-1 rounded-md font-bold text-gray-700">
+                    {pub.institution}
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-1.5 mb-2">
+                  <Users className="w-3.5 h-3.5 text-gray-500" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                    Research Teammates & Co-Authors
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {pub.teammates.map((member, mIdx) => (
+                    <a
+                      key={mIdx}
+                      href={member.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-gray-700 hover:text-[#a31515] hover:border-[#a31515] transition-all duration-200 shadow-2xs group/member"
+                    >
+                      <LinkedinIcon className="w-3.5 h-3.5 text-gray-400 group-hover/member:text-[#a31515] transition-colors" />
+                      <span>{member.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href={pub.paperUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#a31515] hover:bg-[#7a0f0f] text-white px-5 py-2.5 rounded-xl font-bold uppercase text-xs tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(163,21,21,0.25)] hover:shadow-[0_6px_20px_rgba(163,21,21,0.4)] hover:-translate-y-0.5"
+              >
+                <BookOpen className="w-4 h-4" />
+                Read Published Paper
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href={pub.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold uppercase text-xs tracking-wider transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
+              >
+                <Award className="w-4 h-4 text-amber-400" />
+                View Certificate
+                <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
+              </a>
+
+              <a
+                href={pub.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-white border border-gray-200 hover:border-[#a31515] text-gray-700 hover:text-[#a31515] px-4 py-2.5 rounded-xl font-bold uppercase text-xs tracking-wider transition-all duration-300"
+              >
+                <LinkedinIcon className="w-3.5 h-3.5 fill-current" />
+                LinkedIn Post
+              </a>
+
+              <a
+                href="https://careermap-c2vx.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-600 hover:text-[#a31515] transition-colors ml-auto px-2 py-2"
+              >
+                CareerMap Demo
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
         ))}
