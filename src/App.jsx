@@ -85,8 +85,7 @@ const projects = [
       "College management system featuring secure authentication, attendance tracking, student records, and academic workflows with Django ORM relational schema.",
     tags: ["Django", "Python", "MySQL", "HTML5", "CSS3", "JavaScript"],
     githubUrl: "https://github.com/Saikrishna1124/CampusPro",
-    liveUrl:
-      "https://campus-pro-zfrb-jsklfghsq-saikrishna1124s-projects.vercel.app/",
+    liveUrl: "https://campus-pro-p5fp.vercel.app/",
   },
 ];
 
@@ -136,34 +135,11 @@ const researchPublications = [
     date: "August 27, 2026",
     paperId: "IJCSE-V10I4P13",
     issn: "2455-135X",
+    institution: "Parul University",
     paperUrl:
       "https://www.ijcsejournal.org/careermap-comparative-ai-framework-resume-parsing-skill-gap-analysis/",
     certificateUrl:
       "https://drive.google.com/file/d/1_vFyAsFXC9f47cWzVBkB3OZcZaOm-q2r/view?usp=sharing",
-    teammates: [
-      {
-        name: "Sai Krishna",
-        url: "https://www.linkedin.com/in/sai-krishna-gummadidala-261984354/",
-      },
-      {
-        name: "Jyothsna Vamisetti",
-        url: "https://www.linkedin.com/in/jyothsnavamisetti/",
-      },
-      {
-        name: "Muriki Tarun",
-        url: "https://www.linkedin.com/in/muriki-tarun/",
-      },
-      {
-        name: "Bharath Kumar Kuruva",
-        url: "https://www.linkedin.com/in/bharath-kumar-kuruva-513195317/",
-      },
-      {
-        name: "Gutha Chaitanya",
-        url: "https://www.linkedin.com/in/gutha-chaitanya-282a27353/",
-      },
-    ],
-    mentor: "Ritu Agrawal Ma’am",
-    institution: "Parul University",
   },
 ];
 
@@ -230,8 +206,8 @@ function App() {
       <About />
       <Skills />
       <Projects />
-      <ResearchPublications />
       <ExperienceEducation />
+      <ResearchPublications />
       <Certifications />
       <Contact />
     </div>
@@ -254,8 +230,8 @@ function Navbar() {
     "About",
     "Skills",
     "Projects",
-    "Research",
     "Experience",
+    "Research",
     "Certifications",
     "Contact",
   ];
@@ -1215,169 +1191,6 @@ function Projects() {
   );
 }
 
-function ResearchPublications() {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        })
-        .fromTo(
-          titleRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
-        )
-        .fromTo(
-          ".pub-card",
-          { y: 25, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
-          "-=0.3"
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section
-      id="research"
-      ref={sectionRef}
-      className="relative w-full bg-white text-gray-900 py-16 px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col items-center justify-center overflow-hidden border-t border-gray-100"
-    >
-      <div id="publications" className="absolute -top-20" />
-
-      {/* Title */}
-      <div
-        ref={titleRef}
-        className="flex flex-col items-center text-center mb-10 z-10"
-      >
-        <span className="text-[#a31515] font-bold uppercase text-[10px] md:text-xs tracking-[0.2em] mb-2 flex items-center gap-1.5">
-          <img
-            src="/assets/spydy-DLbFrGCQ.png"
-            alt="Spider"
-            className="w-4 h-4 object-contain"
-          />
-          Research Paper Published
-        </span>
-        <h2
-          className="text-3xl md:text-5xl font-black tracking-tighter uppercase italic text-gray-900"
-          style={{ textShadow: "2px 2px 0px #fca5a5" }}
-        >
-          RESEARCH PUBLICATION.
-        </h2>
-        <div className="w-12 h-1 bg-[#a31515] mt-2 rounded-full" />
-      </div>
-
-      {/* Basic Info Card */}
-      <div className="w-full max-w-4xl z-10">
-        {researchPublications.map((pub, idx) => (
-          <div
-            key={idx}
-            className="pub-card bg-gray-50/90 border border-gray-200 hover:border-[#a31515] p-6 sm:p-8 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md flex flex-col gap-4"
-          >
-            {/* Header: Journal & Date */}
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 pb-3">
-              <span className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-tight">
-                {pub.journal}
-              </span>
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full">
-                {pub.date}
-              </span>
-            </div>
-
-            {/* Paper Title */}
-            <h3 className="text-base sm:text-xl md:text-2xl font-black uppercase tracking-tight text-gray-900 leading-snug">
-              “{pub.title}”
-            </h3>
-
-            {/* Publication Details Pills */}
-            <div className="flex flex-wrap gap-2 text-xs">
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                {pub.volume}
-              </span>
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                {pub.pages}
-              </span>
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                Paper ID: {pub.paperId}
-              </span>
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                ISSN: {pub.issn}
-              </span>
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                {pub.institution}
-              </span>
-            </div>
-
-            {/* Team & Mentor */}
-            <div className="flex flex-col gap-2 pt-3 border-t border-gray-200 text-xs">
-              <div className="flex flex-wrap items-center gap-1.5">
-                <span className="font-bold text-gray-900 uppercase text-[11px] tracking-wider">
-                  Teammates:
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {pub.teammates.map((m, mIdx) => (
-                    <a
-                      key={mIdx}
-                      href={m.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-2.5 py-1 bg-white border border-gray-200 hover:border-[#a31515] hover:text-[#a31515] rounded-md text-gray-700 font-medium transition-colors"
-                    >
-                      {m.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 mt-0.5">
-                <span className="font-bold text-gray-900 uppercase text-[11px] tracking-wider">
-                  Mentor:
-                </span>
-                <span className="text-gray-700 font-medium">
-                  {pub.mentor}
-                </span>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a
-                href={pub.paperUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#a31515] hover:bg-[#7a0f0f] text-white px-5 py-2.5 rounded-xl font-bold uppercase text-xs tracking-wider transition-all duration-300 shadow-sm hover:shadow hover:-translate-y-0.5"
-              >
-                <BookOpen className="w-4 h-4" />
-                Read Paper
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-
-              <a
-                href={pub.certificateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold uppercase text-xs tracking-wider transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <Award className="w-4 h-4 text-amber-400" />
-                View Certificate
-                <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function ExperienceEducation() {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
@@ -1545,6 +1358,138 @@ function ExperienceEducation() {
             ))}
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function ResearchPublications() {
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        })
+        .fromTo(
+          titleRef.current,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
+        )
+        .fromTo(
+          ".pub-card",
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" },
+          "-=0.3"
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      id="research"
+      ref={sectionRef}
+      className="relative w-full bg-white text-gray-900 py-16 px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col items-center justify-center overflow-hidden border-t border-gray-100"
+    >
+      <div id="publications" className="absolute -top-20" />
+
+      {/* Title */}
+      <div
+        ref={titleRef}
+        className="flex flex-col items-center text-center mb-10 z-10"
+      >
+        <span className="text-[#a31515] font-bold uppercase text-[10px] md:text-xs tracking-[0.2em] mb-2 flex items-center gap-1.5">
+          <img
+            src="/assets/spydy-DLbFrGCQ.png"
+            alt="Spider"
+            className="w-4 h-4 object-contain"
+          />
+          Research Paper Published
+        </span>
+        <h2
+          className="text-3xl md:text-5xl font-black tracking-tighter uppercase italic text-gray-900"
+          style={{ textShadow: "2px 2px 0px #fca5a5" }}
+        >
+          RESEARCH PUBLICATION.
+        </h2>
+        <div className="w-12 h-1 bg-[#a31515] mt-2 rounded-full" />
+      </div>
+
+      {/* Basic Info Card */}
+      <div className="w-full max-w-4xl z-10">
+        {researchPublications.map((pub, idx) => (
+          <div
+            key={idx}
+            className="pub-card bg-gray-50/90 border border-gray-200 hover:border-[#a31515] p-6 sm:p-8 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md flex flex-col gap-4"
+          >
+            {/* Header: Journal & Date */}
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 pb-3">
+              <span className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-tight">
+                {pub.journal}
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full">
+                {pub.date}
+              </span>
+            </div>
+
+            {/* Paper Title */}
+            <h3 className="text-base sm:text-xl md:text-2xl font-black uppercase tracking-tight text-gray-900 leading-snug">
+              “{pub.title}”
+            </h3>
+
+            {/* Publication Details Pills */}
+            <div className="flex flex-wrap gap-2 text-xs">
+              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
+                {pub.volume}
+              </span>
+              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
+                {pub.pages}
+              </span>
+              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
+                Paper ID: {pub.paperId}
+              </span>
+              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
+                ISSN: {pub.issn}
+              </span>
+              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
+                {pub.institution}
+              </span>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href={pub.paperUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#a31515] hover:bg-[#7a0f0f] text-white px-5 py-2.5 rounded-xl font-bold uppercase text-xs tracking-wider transition-all duration-300 shadow-sm hover:shadow hover:-translate-y-0.5"
+              >
+                <BookOpen className="w-4 h-4" />
+                Read Paper
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href={pub.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold uppercase text-xs tracking-wider transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <Award className="w-4 h-4 text-amber-400" />
+                View Certificate
+                <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
