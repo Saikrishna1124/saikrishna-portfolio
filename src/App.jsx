@@ -130,12 +130,18 @@ const researchPublications = [
       "CareerMap: A Comparative AI Framework for Resume Parsing, Skill Gap Analysis, and Intelligent Interview Assistance",
     journal:
       "International Journal of Computer Science Engineering Techniques (IJCSE)",
-    volume: "Volume 10, Issue 4",
-    pages: "Pages 100–113",
-    date: "August 27, 2026",
+    volume: "10, Issue 4",
+    pages: "100–113",
+    publishedDate: "August 27, 2026",
     paperId: "IJCSE-V10I4P13",
     issn: "2455-135X",
     institution: "Parul University",
+    researchAreas: [
+      "AI Resume Parsing",
+      "Skill Gap Analysis",
+      "Intelligent Interview Assistance",
+      "Career Readiness",
+    ],
     paperUrl:
       "https://www.ijcsejournal.org/careermap-comparative-ai-framework-resume-parsing-skill-gap-analysis/",
     certificateUrl:
@@ -1412,7 +1418,7 @@ function ResearchPublications() {
             alt="Spider"
             className="w-4 h-4 object-contain"
           />
-          Research Paper Published
+          Research Publication
         </span>
         <h2
           className="text-3xl md:text-5xl font-black tracking-tighter uppercase italic text-gray-900"
@@ -1424,48 +1430,74 @@ function ResearchPublications() {
       </div>
 
       {/* Basic Info Card */}
-      <div className="w-full max-w-4xl z-10">
+      <div className="w-full max-w-3xl z-10">
         {researchPublications.map((pub, idx) => (
           <div
             key={idx}
-            className="pub-card bg-gray-50/90 border border-gray-200 hover:border-[#a31515] p-6 sm:p-8 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md flex flex-col gap-4"
+            className="pub-card bg-gray-50/90 border border-gray-200 hover:border-[#a31515] p-6 sm:p-8 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md flex flex-col gap-5"
           >
-            {/* Header: Journal & Date */}
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 pb-3">
-              <span className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-tight">
-                {pub.journal}
-              </span>
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full">
-                {pub.date}
-              </span>
+            {/* Paper Title & Journal */}
+            <div className="flex flex-col gap-2 border-b border-gray-200 pb-4">
+              <h3 className="text-base sm:text-xl md:text-2xl font-black uppercase tracking-tight text-gray-900 leading-snug">
+                {pub.title}
+              </h3>
+              <p className="text-xs sm:text-sm font-semibold text-gray-600">
+                Published in{" "}
+                <span className="text-gray-900 font-bold">
+                  {pub.journal}
+                </span>
+              </p>
             </div>
 
-            {/* Paper Title */}
-            <h3 className="text-base sm:text-xl md:text-2xl font-black uppercase tracking-tight text-gray-900 leading-snug">
-              “{pub.title}”
-            </h3>
+            {/* Publication Details */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+              <div className="flex flex-col bg-white border border-gray-200 px-3 py-2 rounded-lg">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Volume</span>
+                <span className="font-semibold text-gray-800">{pub.volume}</span>
+              </div>
+              <div className="flex flex-col bg-white border border-gray-200 px-3 py-2 rounded-lg">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Pages</span>
+                <span className="font-semibold text-gray-800">{pub.pages}</span>
+              </div>
+              <div className="flex flex-col bg-white border border-gray-200 px-3 py-2 rounded-lg">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Published</span>
+                <span className="font-semibold text-gray-800">{pub.publishedDate}</span>
+              </div>
+              <div className="flex flex-col bg-white border border-gray-200 px-3 py-2 rounded-lg">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Paper ID</span>
+                <span className="font-semibold text-gray-800">{pub.paperId}</span>
+              </div>
+              <div className="flex flex-col bg-white border border-gray-200 px-3 py-2 rounded-lg">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">ISSN</span>
+                <span className="font-semibold text-gray-800">{pub.issn}</span>
+              </div>
+              <div className="flex flex-col bg-white border border-gray-200 px-3 py-2 rounded-lg">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Institution</span>
+                <span className="font-semibold text-gray-800">{pub.institution}</span>
+              </div>
+            </div>
 
-            {/* Publication Details Pills */}
-            <div className="flex flex-wrap gap-2 text-xs">
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                {pub.volume}
+            {/* Research Areas */}
+            <div className="pt-1">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500 block mb-2">
+                Research Areas:
               </span>
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                {pub.pages}
-              </span>
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                Paper ID: {pub.paperId}
-              </span>
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                ISSN: {pub.issn}
-              </span>
-              <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md text-gray-700 font-semibold">
-                {pub.institution}
-              </span>
+              <p className="text-xs sm:text-sm font-semibold text-gray-800 flex flex-wrap items-center gap-1.5">
+                {pub.researchAreas.map((area, aIdx) => (
+                  <span key={aIdx} className="flex items-center">
+                    <span className="px-2.5 py-1 bg-white border border-gray-200 rounded-md">
+                      {area}
+                    </span>
+                    {aIdx < pub.researchAreas.length - 1 && (
+                      <span className="mx-1 text-gray-400 font-bold">•</span>
+                    )}
+                  </span>
+                ))}
+              </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-gray-200">
               <a
                 href={pub.paperUrl}
                 target="_blank"
