@@ -31,21 +31,28 @@ const USER_INFO = {
   location: "Guntur, Andhra Pradesh",
   github: "https://github.com/Saikrishna1124",
   linkedin: "https://www.linkedin.com/in/sai-krishna-gummadidala-261984354/",
-  resume: "/sai_resume.pdf",
+  leetcode: "https://leetcode.com/u/Sai_Krishna893/",
+  resume: "/Sai__Resume_.pdf",
   web3formsKey: "c57a6561-c89f-4387-b409-513d04ae42db",
 };
 
 const skills = [
-  { name: "Python & Django", category: "Languages & Frameworks", level: "Advanced" },
-  { name: "React & TypeScript", category: "Frontend", level: "Advanced" },
-  { name: "Node.js & Express", category: "Backend", level: "Advanced" },
-  { name: "Google Gemini API", category: "AI & ML", level: "Advanced" },
+  { name: "Python, Java, C & SQL", category: "Languages", level: "Advanced" },
+  { name: "JavaScript & TypeScript", category: "Languages", level: "Advanced" },
+  { name: "Node.js & Express.js", category: "Backend & Web", level: "Advanced" },
+  { name: "React.js & Tailwind CSS", category: "Backend & Web", level: "Advanced" },
+  { name: "Django, Flask & REST APIs", category: "Backend & Web", level: "Advanced" },
+  { name: "Google Gemini API & AI/ML", category: "AI & ML", level: "Advanced" },
+  { name: "TensorFlow, NumPy & Pandas", category: "AI & ML", level: "Proficient" },
+  { name: "Scikit-learn & Prompt Eng.", category: "AI & ML", level: "Advanced" },
   { name: "PostgreSQL & MySQL", category: "Databases", level: "Advanced" },
-  { name: "MongoDB & Firebase", category: "Databases", level: "Proficient" },
-  { name: "Tailwind CSS & GSAP", category: "Frontend", level: "Advanced" },
-  { name: "REST APIs & Auth", category: "Backend", level: "Advanced" },
-  { name: "AWS & Vercel / Render", category: "DevOps & Cloud", level: "Proficient" },
-  { name: "DSA & OOP Concepts", category: "Core CS", level: "Advanced" },
+  { name: "MongoDB, Firebase & Supabase", category: "Databases", level: "Proficient" },
+  { name: "Drizzle ORM", category: "Databases & ORM", level: "Advanced" },
+  { name: "Data Structures & Algorithms (DSA)", category: "Core CS", level: "Advanced" },
+  { name: "OOP, DBMS & Computer Networks", category: "Core CS", level: "Advanced" },
+  { name: "SDLC & Agile Methodologies", category: "Core CS", level: "Proficient" },
+  { name: "Git, GitHub & AWS", category: "Tools & Cloud", level: "Advanced" },
+  { name: "Vercel & Render", category: "Tools & Cloud", level: "Advanced" },
 ];
 
 const projects = [
@@ -59,6 +66,8 @@ const projects = [
       "React.js",
       "Tailwind CSS",
       "Node.js",
+      "Express.js",
+      "Drizzle ORM",
       "PostgreSQL",
       "Gemini AI",
       "Research Paper",
@@ -95,14 +104,17 @@ const experiences = [
     company: "Elevate Labs",
     period: "Sep 2025 -- Nov 2025",
     award: "Best Performer Award",
+    certificateUrl:
+      "https://drive.google.com/file/d/1X8oft_aRl5cBs3hmkHmy7-f2qKxqVHML/view?usp=sharing",
     description:
-      "Engineered high-performance backend APIs and data processing workflows, delivering measurable response time improvements and zero-downtime reliability ahead of release deadlines.",
+      "Engineered backend modules and production REST APIs in Python, delivering measurable response time improvements and zero-downtime reliability ahead of release deadlines.",
     bullets: [
-      "Built and optimized 5+ production REST API endpoints in Python, reducing API response times by 25% through database query optimization.",
-      "Identified and resolved critical backend reliability issues ahead of tight production release deadlines.",
-      "Collaborated with senior software engineers to write unit test suites and streamline backend API integration.",
+      "Built and optimized 5+ backend modules and REST API endpoints in Python for production environments.",
+      "Reduced API response time by 25% through query optimization, database indexing, and efficient request handling.",
+      "Debugged and tested existing software modules, resolving performance bottlenecks ahead of feature releases.",
+      "Awarded Best Performer for code quality, consistency, and problem-solving under tight deadlines.",
     ],
-    highlights: ["Python", "REST APIs", "Query Optimization", "Testing", "Django", "PostgreSQL"],
+    highlights: ["Python", "REST APIs", "Query Optimization", "Database Indexing", "Django", "PostgreSQL"],
   },
 ];
 
@@ -171,19 +183,29 @@ const certifications = [
     link: "https://drive.google.com/file/d/10Bsm0t5AJYcDeUDcfg-SEsxk2FFEFg8M/view?usp=sharing",
   },
   {
-    name: "Data Science",
-    issuer: "Certification Program",
-    link: "https://drive.google.com/file/d/1pVM_xqlKjgAxRreWuMZDmxV75y52HWg2/view?usp=sharing",
-  },
-  {
     name: "Mastering DSA",
     issuer: "Algorithms Certification",
     link: "https://drive.google.com/file/d/1c9_Haq1vhq11KhCyYdFVkhtQLmq6MgLg/view?usp=sharing",
   },
   {
+    name: "Data Science",
+    issuer: "Certification Program",
+    link: "https://drive.google.com/file/d/1pVM_xqlKjgAxRreWuMZDmxV75y52HWg2/view?usp=sharing",
+  },
+  {
     name: "Generative AI for All",
     issuer: "AI Specialization",
     link: "https://drive.google.com/file/d/1-pKfCTjm7mTXxdV-yPmZq-HzARzWKv42/view?usp=sharing",
+  },
+  {
+    name: "Computer Networks & Internet Protocol",
+    issuer: "Networking Specialization",
+    link: "https://drive.google.com/file/d/1kkwsqMGgTgLUdz6ATN-6f4Iss8k0Uwd4/view?usp=sharing",
+  },
+  {
+    name: "Salesforce Administrator & App Builder",
+    issuer: "Salesforce Certification",
+    link: "https://drive.google.com/file/d/1p7iIJbtFVzU5OKe3Je3UFP26ml4ykA7x/view?usp=sharing",
   },
 ];
 
@@ -274,6 +296,16 @@ function Navbar() {
               <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-red-600 transition-all duration-300 ease-out group-hover:w-full shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
             </a>
           ))}
+          <a
+            href={USER_INFO.resume}
+            download="Sai_Krishna_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white bg-[#a31515] hover:bg-[#7a0f0f] px-3.5 py-1.5 rounded-lg transition-all duration-300 shadow-[0_2px_10px_rgba(163,21,21,0.4)] hover:shadow-[0_4px_15px_rgba(163,21,21,0.6)] cursor-pointer"
+          >
+            <Download className="w-3.5 h-3.5" />
+            Resume
+          </a>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -1287,12 +1319,25 @@ function ExperienceEducation() {
                       {exp.period}
                     </span>
                   </div>
-                  {exp.award && (
-                    <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-200 px-2.5 py-1 rounded-md mb-3">
-                      <Award className="w-3.5 h-3.5" />
-                      {exp.award}
-                    </div>
-                  )}
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    {exp.award && (
+                      <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#a31515] bg-red-50 border border-red-200 px-2.5 py-1 rounded-md">
+                        <Award className="w-3.5 h-3.5" />
+                        {exp.award}
+                      </div>
+                    )}
+                    {exp.certificateUrl && (
+                      <a
+                        href={exp.certificateUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-700 hover:text-[#a31515] bg-gray-100 hover:bg-red-50 border border-gray-200 hover:border-red-200 px-2.5 py-1 rounded-md transition-colors"
+                      >
+                        <ExternalLink className="w-3 h-3" />
+                        Certificate
+                      </a>
+                    )}
+                  </div>
                   <p className="text-xs sm:text-sm text-gray-600 font-medium leading-relaxed mb-3">
                     {exp.description}
                   </p>
